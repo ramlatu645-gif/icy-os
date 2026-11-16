@@ -1,0 +1,869 @@
+# MASTER ENGINEERING PROMPT — ICY APP LAUNCHER BACKEND AND ICY ACCOUNT BACKEND INTEGRATION
+
+## PROJECT MISSION
+
+You are the principal backend architect, senior full-stack engineer, API engineer, database architect, authentication specialist, security engineer, and integration engineer responsible for building the complete backend for my existing ICY App Launcher.
+
+Your assignment is to build a powerful, reliable, secure, and fully functional ICY App Launcher Backend and connect it to my already-existing ICY Account Backend.
+
+IMPORTANT: This assignment concerns the APP LAUNCHER BACKEND ONLY.
+
+Do not rebuild ICY Account.
+Do not rebuild ICY Account Backend.
+Do not rebuild ICY Cloud.
+Do not rebuild ICYOS.
+Do not build the ICY Operative AI.
+Do not start building individual ICY applications.
+Do not redesign the entire application unnecessarily.
+
+ICY Account, ICY Cloud, and the existing ICY App Launcher frontend already exist.
+
+Your job is to build the missing launcher backend and establish secure communication between the existing ICY Account Backend and the new ICY App Launcher Backend.
+
+The final architecture must allow ICY Account to identify the user, the ICY App Launcher Backend to receive and verify that identity, and the ICY App Launcher frontend to display the correct user's information and available applications.
+
+The backend must also prepare the application registration and integration architecture that will allow us to add ICY applications individually as they are completed.
+
+Build this directly into the existing project.
+
+---
+
+# PART 1 — UNDERSTAND THE ICY ECOSYSTEM
+
+Before writing code, understand these existing services and their responsibilities.
+
+### 1. ICY Account
+
+ICY Account is already built, including its backend.
+
+It is the central identity and account service of the ICY ecosystem.
+
+It manages the actual user identity and the account information associated with each user.
+
+It is responsible for authenticating users and establishing their identity.
+
+### 2. ICY Cloud
+
+ICY Cloud is already built.
+
+It provides cloud storage and other supported cloud functionality.
+
+Do not rebuild it or create another cloud-storage service.
+
+The ICY App Launcher Backend may later connect to its authorized interfaces when launcher functionality requires them.
+
+### 3. ICY App Launcher
+
+The ICY App Launcher already has an existing frontend and application interface.
+
+It is an application launcher, not a full operating system.
+
+It will organize, display, manage, and launch supported ICY applications and compatible third-party applications.
+
+Its individual ICY applications will be added progressively.
+
+### 4. New ICY App Launcher Backend
+
+This is the component you must build now.
+
+It will serve as the communication and application-management backend between ICY Account, the ICY App Launcher frontend, and the future application integrations.
+
+It must have its own organized backend architecture, secure authentication verification, database integration, API routes, application registry, user-specific data management, and error-handling system.
+
+---
+
+# PART 2 — INSPECT THE EXISTING PROJECT BEFORE DEVELOPMENT
+
+First, inspect the entire existing ICY App Launcher project.
+
+Identify:
+
+- Existing programming language and framework.
+- Existing frontend structure.
+- Existing backend, if any.
+- Existing database configuration.
+- Current authentication implementation.
+- Existing API routes.
+- Existing ICY Account connection points.
+- Existing application catalog.
+- Existing user-interface state management.
+- Current application launching mechanism.
+- Existing environment configuration.
+- Existing deployment structure.
+- Existing security mechanisms.
+- Existing errors and incomplete features.
+
+Then inspect the available ICY Account integration documentation, API configuration, existing source files, and backend interfaces accessible in the project.
+
+Your goal is to understand how the real ICY Account Backend works before connecting to it.
+
+Do not invent API endpoints, credentials, response formats, database schemas, authentication methods, or service URLs.
+
+Do not assume that ICY Account and ICY App Launcher use the same database.
+
+Do not create a competing identity system.
+
+Do not modify working ICY Account backend functionality.
+
+If the necessary Account API documentation or credentials are unavailable, create a clean integration adapter based on the actual information available and clearly identify the missing configuration.
+
+Never fabricate a successful connection.
+
+Preserve the existing ICY App Launcher frontend and its working features.
+
+---
+
+# PART 3 — BUILD THE ICY APP LAUNCHER BACKEND
+
+Create a properly structured and maintainable backend.
+
+Separate the code into appropriate components.
+
+The architecture should include:
+
+1. Authentication integration service.
+2. ICY Account communication service.
+3. User identity service.
+4. User profile service.
+5. User session management.
+6. Application registry service.
+7. Application catalog service.
+8. User application preferences service.
+9. Application launch authorization service.
+10. API routing layer.
+11. Database and persistence layer.
+12. Configuration and secret-management layer.
+13. Logging and monitoring.
+14. Validation and error handling.
+15. Future ICY application integration interface.
+
+Adapt these components to the framework already used by the existing project.
+
+Avoid creating unnecessary duplicate services.
+
+Keep the code modular and extensible.
+
+The launcher backend must be able to operate independently while depending on the existing ICY Account service for authoritative identity.
+
+---
+
+# PART 4 — CONNECT ICY ACCOUNT BACKEND TO ICY APP LAUNCHER BACKEND
+
+This is the most important part of the entire assignment.
+
+Establish secure communication between the two backends.
+
+The intended relationship is:
+
+ICY ACCOUNT BACKEND
+        |
+        | Authenticated identity and permitted account information
+        |
+        v
+ICY APP LAUNCHER BACKEND
+        |
+        | Verified user identity and authorized launcher data
+        |
+        v
+ICY APP LAUNCHER FRONTEND
+
+The ICY Account Backend must remain the authoritative source of user identity.
+
+The ICY App Launcher Backend must be able to determine which authenticated ICY Account user is accessing the launcher.
+
+### Authentication procedure
+
+Implement the authentication protocol supported by the actual ICY Account Backend.
+
+If ICY Account already supports OpenID Connect or OAuth 2.0, use its existing documented authentication flow.
+
+If it uses another established secure session or token mechanism, create an adapter for that mechanism.
+
+Do not build a parallel password system.
+
+Do not ask users to create a second ICY App Launcher account.
+
+Do not store ICY Account passwords in the launcher database.
+
+Do not assume that possessing a user ID or username proves that someone is authenticated.
+
+The backend must verify authentication through a trusted server-side mechanism.
+
+Where supported, validate:
+
+- Token signature.
+- Token issuer.
+- Intended audience.
+- Expiration.
+- Issued-at time.
+- Required authorization claims.
+- Subject identifier.
+
+Where a server-side session or token-introspection mechanism is used, validate it according to the Account service's actual protocol.
+
+Never trust identity information supplied only by the browser.
+
+### Account identity
+
+Use the immutable account subject ID or stable user identifier supplied by ICY Account as the primary identity key.
+
+Usernames and email addresses may change. Do not use them as the permanent identity key.
+
+Maintain a verified mapping between the ICY Account identity and the corresponding ICY App Launcher user record.
+
+When an authenticated user accesses ICY App Launcher, the backend should be able to retrieve the actual identity associated with that session.
+
+### Account information
+
+Retrieve permitted profile information from ICY Account using the actual supported API.
+
+Where available and authorized, support fields such as:
+
+- Account ID.
+- First name.
+- Last name.
+- Display name.
+- Username.
+- Profile image.
+- Verified email information where required and permitted.
+- Account status.
+- Other profile attributes explicitly needed by a launcher feature.
+
+Respect the user's privacy and the permissions defined by ICY Account.
+
+Do not automatically copy every sensitive account attribute into the launcher database.
+
+Do not unnecessarily request or retain passwords, recovery information, private security details, religious information, or other sensitive profile attributes.
+
+The Account service remains responsible for protecting authoritative profile information.
+
+The launcher may maintain a limited local projection or cache of permitted profile fields for display, with appropriate synchronization and expiration rules.
+
+### Required result
+
+When a user signs in to ICY Account and opens ICY App Launcher:
+
+1. The user's authentication is established through ICY Account.
+2. The launcher receives the supported authentication handoff.
+3. ICY App Launcher Backend verifies the user's identity.
+4. The backend retrieves permitted account information.
+5. The backend establishes or validates the user's launcher session.
+6. The backend retrieves that user's launcher preferences.
+7. The backend retrieves the applications available to that user.
+8. The backend returns the appropriate information to the launcher frontend.
+9. The frontend displays the actual authenticated user's identity and launcher information.
+
+The system must prevent one user's information from being returned to another user's session.
+
+---
+
+# PART 5 — USER PROFILE AND ACCOUNT LINKING
+
+Create a launcher-side user identity record linked to ICY Account.
+
+The record should use the permanent ICY Account identity identifier.
+
+A suitable logical structure includes:
+
+- Internal launcher record ID.
+- External ICY Account subject ID.
+- Display name.
+- Username.
+- Permitted profile image reference.
+- Account-linking status.
+- First successful launcher access.
+- Last successful launcher access.
+- Profile synchronization timestamp.
+- Launcher preference reference.
+
+Use only the fields supported by actual ICY Account responses.
+
+The launcher must recognize returning users without making them create another account.
+
+### Returning user process
+
+When the same user accesses ICY App Launcher again:
+
+- Verify the current Account session.
+- Identify the account using its stable subject ID.
+- Retrieve updated permitted profile information when needed.
+- Load the existing launcher user record.
+- Restore the user's saved launcher preferences.
+- Retrieve the appropriate application catalog.
+- Display the correct user's launcher environment.
+
+If a session expires, request proper reauthentication through ICY Account.
+
+Do not silently create a new user record whenever someone returns.
+
+---
+
+# PART 6 — USER-SPECIFIC LAUNCHER DATA
+
+Every user should have their own properly isolated launcher data.
+
+Implement appropriate storage for:
+
+- User launcher preferences.
+- Favorite applications.
+- Pinned applications.
+- Application ordering.
+- Selected application view.
+- Relevant user-specific application visibility.
+- Recently accessed applications, where enabled.
+- Other supported launcher settings.
+
+Use proper ownership relationships between records and authenticated user IDs.
+
+Every user-specific database operation must be authorized on the server.
+
+Never trust a user ID supplied by the frontend to determine which user's records can be read or modified.
+
+The authenticated session determines the user.
+
+User A must never be able to retrieve or alter User B's launcher preferences.
+
+### Persistence
+
+Store the appropriate information in the project's real database or existing persistence system.
+
+Avoid using temporary frontend memory as the only storage for persistent launcher preferences.
+
+Use local browser storage only for suitable non-sensitive preferences and caching where appropriate.
+
+If the Account or launcher service is temporarily unavailable, handle the error without inventing successful synchronization.
+
+---
+
+# PART 7 — BUILD THE ICY APPLICATION REGISTRY
+
+The ICY App Launcher must be prepared to receive applications progressively.
+
+We will not build all the ICY applications now.
+
+We will build them individually.
+
+When an application is complete, we will export its project as a ZIP file, upload it into the existing ICY development workflow, and instruct the AI development environment to integrate that application into ICY App Launcher.
+
+The launcher backend must therefore include a flexible application registry.
+
+### Application registry fields
+
+Design an extensible application manifest containing fields such as:
+
+- Stable application ID.
+- Application name.
+- Application description.
+- Application icon reference.
+- Application category.
+- Application version.
+- Application package reference.
+- Actual launch destination or native application identifier, where supported.
+- Supported platform information.
+- Required permissions.
+- Application availability.
+- Application compatibility.
+- Integration status.
+- Authentication requirements.
+- Cloud integration requirements, if applicable.
+- Required service permissions.
+- Created timestamp.
+- Updated timestamp.
+
+Use validated application IDs.
+
+Do not depend on display names as unique identifiers.
+
+Do not fabricate applications that have not actually been registered.
+
+### Application status
+
+Support clear application states, such as:
+
+- Registered.
+- Available.
+- Installation required.
+- Installed.
+- Disabled.
+- Incompatible.
+- Integration pending.
+- Temporarily unavailable.
+- Removed.
+
+A status must correspond to a real application registry record or verified platform information.
+
+Do not claim an app is installed simply because it appears in the catalog.
+
+### Application categories
+
+The system must support a flexible category structure.
+
+Do not hardcode the entire future ICY application ecosystem into one component.
+
+Allow authorized catalog-management functionality to add or update categories and applications.
+
+---
+
+# PART 8 — FUTURE APPLICATION INTEGRATION ARCHITECTURE
+
+Prepare the backend to support the way we intend to build and add ICY applications.
+
+The development process will be:
+
+1. Build an individual ICY application.
+2. Complete its interface and functionality.
+3. Build and test its own required backend.
+4. Export the application project as a ZIP file.
+5. Upload that ZIP into the existing ICY development workflow.
+6. Instruct the AI development environment to inspect and integrate the application with ICY App Launcher.
+7. Register the application through the launcher integration architecture.
+8. Test its account connection and launch behavior.
+9. Confirm that it appears correctly in ICY App Launcher.
+10. Repeat for the next application.
+
+Build a stable application integration contract so all future applications follow the same rules.
+
+### Application integration requirements
+
+Every future ICY app should be capable of:
+
+- Identifying the signed-in ICY Account user through supported authentication.
+- Obtaining its authorized user identity.
+- Using its own application-level permissions.
+- Connecting to ICY Cloud when required.
+- Registering its application metadata.
+- Providing a supported launch destination or integration identifier.
+- Returning useful launch and integration errors.
+- Maintaining its own application data and backend responsibilities.
+
+Applications should not need separate user accounts when the existing ICY Account SSO architecture supports them.
+
+Do not merge all individual app backends into the ICY App Launcher Backend.
+
+The launcher backend manages the launcher and coordinates approved integrations. Individual applications remain independently maintainable products.
+
+### ZIP package security
+
+A ZIP file must never be treated as automatically safe executable software.
+
+Do not blindly execute uploaded ZIP contents.
+
+Create or document a future secure package-inspection and integration procedure that considers:
+
+- File validation.
+- Package metadata validation.
+- Dependency review.
+- File-path traversal protection.
+- Untrusted script handling.
+- Malware scanning where supported.
+- Deployment configuration.
+- Actual application destination.
+- Integration permissions.
+
+Do not allow untrusted packages to execute arbitrary backend commands.
+
+The launcher may reference an approved application's actual deployment location or native launch identifier without hosting or executing its code inside the launcher backend.
+
+---
+
+# PART 9 — APPLICATION LAUNCH MANAGEMENT
+
+Build a backend service that can authorize and coordinate application-launch requests.
+
+The existing frontend will request that the backend prepare or authorize the launch of a selected application.
+
+The backend must:
+
+1. Identify the currently authenticated user.
+2. Validate the requested application ID.
+3. Check that the application exists.
+4. Verify its current availability.
+5. Check its compatibility and relevant permissions.
+6. Determine whether the user is allowed to access it.
+7. Resolve the approved launch integration.
+8. Return the correct launch information or authorization result.
+9. Record the relevant activity according to privacy settings.
+
+Do not allow the frontend to provide an arbitrary URL and persuade the backend to launch it without validation.
+
+Use application-specific allowlists and trusted destinations where appropriate.
+
+Support a launch adapter architecture suitable for the actual host environment.
+
+A web application, PWA, desktop integration, and Android application may require different launch mechanisms.
+
+Do not pretend a browser application has native operating-system privileges.
+
+Where an application cannot be launched, return a meaningful error and a suitable next step.
+
+### Future SSO handoff to individual ICY apps
+
+Prepare a secure integration contract for future ICY applications.
+
+Where the Account architecture permits, use established SSO protocols or short-lived, application-specific launch authorization codes that can be exchanged securely.
+
+Do not put long-lived Account tokens into application URLs.
+
+Do not expose privileged service credentials to the browser.
+
+Do not allow one application to receive another application's authorization.
+
+---
+
+# PART 10 — BACKEND API DESIGN
+
+Create a clear, documented API for the ICY App Launcher frontend.
+
+Adapt the actual route names and conventions to the existing project.
+
+The logical API capabilities should include:
+
+### Authentication and identity
+
+- Retrieve the current authenticated launcher user.
+- Verify or renew supported launcher sessions.
+- Obtain permitted ICY Account profile information.
+- Sign out or terminate the launcher session.
+- Report authentication failures.
+
+### Profile
+
+- Retrieve the current user's launcher profile.
+- Synchronize permitted Account profile updates.
+- Retrieve the profile image reference where supported.
+
+### Applications
+
+- Retrieve the application catalog.
+- Retrieve application details.
+- Search the available application catalog.
+- Filter applications by category.
+- Retrieve application availability.
+- Obtain an authorized application launch result.
+
+### Launcher preferences
+
+- Retrieve user launcher preferences.
+- Update supported preferences.
+- Manage favorite applications.
+- Manage pinned applications.
+- Save application ordering.
+- Retrieve recent activity when enabled.
+
+### Account integration
+
+- Verify Account connection health using a safe backend mechanism.
+- Report Account service availability.
+- Handle expired authentication.
+- Handle Account API errors.
+- Refresh permitted profile projections.
+
+### Administration and registration
+
+Create appropriately protected application-management capabilities for future ICY application registration.
+
+Only authorized administrators or trusted deployment processes should be allowed to register, update, disable, or remove applications.
+
+Never expose unrestricted application-management endpoints to ordinary users.
+
+Document every implemented route with its purpose, authentication requirements, request schema, response schema, and error conditions.
+
+Use consistent response formats.
+
+Implement input validation.
+
+Do not return sensitive internal stack traces to the browser.
+
+---
+
+# PART 11 — SECURITY REQUIREMENTS
+
+Security is essential.
+
+Implement:
+
+- Server-side authentication verification.
+- Authorization checks on every protected resource.
+- User-specific data isolation.
+- Secure session management.
+- Suitable CSRF protection when cookie-based authentication is used.
+- Strict CORS configuration.
+- Input validation.
+- Output validation where appropriate.
+- Rate limiting.
+- Safe API error handling.
+- Secure secret management.
+- Safe logging.
+- Application destination validation.
+- Protection against session confusion.
+- Appropriate session expiration.
+- Logout and session revocation handling.
+
+Keep secrets in server-side environment variables or an appropriate secret manager.
+
+Never hardcode production credentials.
+
+Never expose private ICY Account credentials, signing keys, client secrets, or service API keys in frontend code.
+
+Do not put passwords or sensitive identity information in logs.
+
+If an inter-service credential is required, use a trusted backend-to-backend authentication method supported by the actual services.
+
+Use the least privilege required.
+
+Do not create hidden bypasses or universal credentials.
+
+---
+
+# PART 12 — DATABASE DESIGN
+
+Inspect the existing database first.
+
+Reuse existing valid database infrastructure where appropriate.
+
+Do not create a duplicate ICY Account database.
+
+The launcher database should hold only the data needed for launcher operations.
+
+Design suitable logical entities for:
+
+- Linked launcher users.
+- User launcher preferences.
+- Application records.
+- Application categories.
+- User favorites.
+- Pinned application arrangements.
+- Application availability.
+- Authorized application registrations.
+- Relevant launch records.
+- Audit and integration health information where appropriate.
+
+Define proper relationships, stable identifiers, uniqueness rules, indexes, validation, ownership constraints, and migration procedures.
+
+Avoid storing sensitive Account information unnecessarily.
+
+Keep application-owned user data in the appropriate application's own backend unless a documented service contract explicitly defines another location.
+
+---
+
+# PART 13 — CONNECTION HEALTH AND ERROR MANAGEMENT
+
+Create a proper service-connection health mechanism.
+
+The backend should be able to distinguish:
+
+- ICY Account connected.
+- ICY Account unavailable.
+- Invalid authentication.
+- Expired session.
+- Permission denied.
+- Profile retrieval failed.
+- Database unavailable.
+- Application registry unavailable.
+- Application unavailable.
+- Invalid application launch request.
+- Configuration missing.
+- Network timeout.
+
+Do not report a connection as successful unless a real health check or successful operation confirms it.
+
+Use sensible timeout and retry policies.
+
+Avoid infinite retries and duplicate operations.
+
+If ICY Account goes offline temporarily, the launcher should display an accurate service state.
+
+Local launcher preferences may remain available when appropriate, but protected operations must not bypass authentication.
+
+Do not invent account profile data or successful cloud synchronization as a fallback.
+
+---
+
+# PART 14 — CONNECTION WITH THE EXISTING ICY APP LAUNCHER FRONTEND
+
+Integrate the new backend into the existing launcher frontend.
+
+Do not rebuild the frontend.
+
+Preserve the established visual design and working functionality.
+
+The frontend must be able to request:
+
+- The current user's identity.
+- Permitted Account profile details.
+- User-specific launcher preferences.
+- The application catalog.
+- Application category information.
+- Favorite and pinned applications.
+- Application availability.
+- Authorized application launch information.
+- Connection and synchronization status when supported.
+
+The frontend should receive real backend responses.
+
+Display appropriate loading, empty, success, and error states.
+
+Avoid hardcoded user details and dummy application records.
+
+If a backend operation fails, show a meaningful error rather than silently displaying fake information.
+
+Do not expose privileged backend operations through frontend-only authorization checks.
+
+Use the backend as the authority for protected operations.
+
+---
+
+# PART 15 — FUTURE ICY APPLICATIONS
+
+The backend must be prepared for future apps, but do not start building those apps in this assignment.
+
+Future integrations include applications such as:
+
+- ICY Pad.
+- ICY Chat.
+- ICY Search.
+- ICY Store.
+- ICY Contact.
+- ICY Message.
+- ICY Eagle.
+- ICY 3D.
+- Other existing or planned ICY applications.
+
+These applications will be added one by one after their individual development and testing are complete.
+
+Create an extensible integration contract now so future app integrations do not require rebuilding the entire launcher backend.
+
+Do not invent working launch destinations for applications that have not yet been integrated.
+
+Do not create fake installed application records.
+
+Keep the catalog ready for legitimate future registration.
+
+---
+
+# PART 16 — TESTING AND VERIFICATION
+
+Do not stop after writing the backend code.
+
+Run the available build and testing tools.
+
+Test the actual implementation.
+
+### Test 1: Backend startup
+
+Verify that the backend starts without compilation or configuration errors.
+
+### Test 2: Database
+
+Verify database connectivity, schema creation or migration, and data persistence.
+
+### Test 3: Account communication
+
+Using authorized test credentials and the actual ICY Account integration:
+
+- Verify that the launcher backend can communicate with ICY Account.
+- Verify the supported authentication process.
+- Retrieve a permitted test user's identity.
+- Verify the identity mapping.
+- Verify correct profile retrieval.
+- Verify proper expired-session handling.
+- Verify invalid authentication handling.
+
+If credentials or API access are unavailable, test the adapter using clearly labeled mocks and report that the real connection remains unverified.
+
+### Test 4: User isolation
+
+Test with at least two authorized test accounts.
+
+Verify that each user sees only their own protected launcher information.
+
+Verify that one user cannot read or modify another user's preferences by changing a frontend request.
+
+### Test 5: Application registry
+
+Verify that:
+
+- Applications can be registered through authorized means.
+- Application IDs are validated.
+- Duplicate records are rejected appropriately.
+- Categories work.
+- Catalog retrieval works.
+- Application status is accurate.
+- Unauthorized users cannot manage the registry.
+
+### Test 6: Launcher frontend
+
+Verify that the existing frontend can communicate with the new backend.
+
+Check the actual display of the signed-in user's permitted profile information and application catalog.
+
+### Test 7: Launch management
+
+Test valid and invalid application IDs, unavailable applications, unauthorized requests, and unsupported launch destinations.
+
+### Test 8: Security
+
+Check token handling, access control, session security, CORS, CSRF where appropriate, sensitive information exposure, and application destination validation.
+
+### Test 9: Persistence
+
+Restart the application and verify that the appropriate saved user preferences and registry information remain available.
+
+### Test 10: Regression
+
+Check that the original ICY App Launcher frontend continues to work.
+
+Do not break existing features while adding the backend.
+
+Fix errors you find and rerun the relevant tests.
+
+Never claim an external service integration has passed if it was not actually tested.
+
+---
+
+# PART 17 — FINAL DEVELOPMENT REPORT
+
+When implementation and verification are complete, provide a clear report containing:
+
+1. What backend components were actually created.
+2. What database structures were implemented.
+3. How ICY Account communication was implemented.
+4. How authentication and identity verification work.
+5. How user profile information reaches the launcher frontend.
+6. What user-specific launcher functionality works.
+7. How the application registry works.
+8. How future ICY applications can be integrated.
+9. What security measures were implemented.
+10. What tests were actually executed.
+11. Which tests passed and which failed.
+12. Any missing API documentation, credentials, configuration, or deployment requirements.
+
+Clearly distinguish completed functionality from work awaiting external configuration.
+
+---
+
+# FINAL EXECUTION COMMAND
+
+Begin inspecting the existing ICY App Launcher project now.
+
+Build the ICY App Launcher Backend directly within the existing project.
+
+Establish the secure communication architecture with the existing ICY Account Backend.
+
+Implement real authentication verification, identity linking, authorized profile retrieval, user-specific launcher data, application registration architecture, catalog services, launch authorization, and frontend communication.
+
+Preserve the existing ICY Account, ICY Cloud, ICYOS, and ICY App Launcher functionality.
+
+Do not rebuild the existing foundations.
+
+Do not start building the individual ICY applications.
+
+Do not add the Operative AI.
+
+Do not replace genuine integrations with pretend implementations.
+
+Make the backend functional, secure, testable, modular, and ready for the progressive integration of individual ICY applications.
+
+**THE DELIVERABLE IS THE WORKING ICY APP LAUNCHER BACKEND, SECURELY CONNECTED TO THE EXISTING ICY ACCOUNT BACKEND.**
+
+BEGIN IMPLEMENTATION NOW.

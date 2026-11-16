@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IC App Launcher</string>
+    <string name="title_activity_main">IC App Launcher</string>
+    <string name="package_name">org.iclauncher.app</string>
+    <string name="custom_url_scheme">iclauncher</string>
+</resources>

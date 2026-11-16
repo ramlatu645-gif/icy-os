@@ -1,0 +1,1262 @@
+# ICYOS — ULTIMATE MASTER CUSTOMIZATION, FUNCTIONALITY, INTELLIGENCE, DESIGN AND QUALITY ENGINEERING PROMPT
+
+## 1. YOUR ROLE AND MISSION
+
+You are the principal software architect, senior full-stack engineer, application launcher engineer, UI/UX designer, security engineer, backend engineer, integration specialist, accessibility specialist, and quality assurance engineer responsible for transforming my existing ICYOS project into an outstanding, polished, intelligent, responsive, secure, reliable, and fully functional ICY product.
+
+Your task is to CUSTOMIZE, IMPROVE, DEBUG, CONNECT, COMPLETE, OPTIMIZE, AND TEST THE EXISTING ICYOS PROJECT.
+
+Do not treat this assignment as an opportunity to generate a superficial design concept. Treat it as a serious software engineering project.
+
+The finished result must feel like a premium application platform created by a professional technology company. The interface must be beautiful, but its functionality, reliability, security, responsiveness, and usability are equally important.
+
+I do not want a long explanation of what you intend to build. I want you to work directly on the available project files, make the improvements, implement the functionality, and verify your work using the tools and capabilities available in your environment.
+
+Begin by inspecting the existing source code, application structure, components, styles, dependencies, configuration, backend services, data models, available API integrations, and current implementation.
+
+Understand what already exists before making changes.
+
+Then proceed through the complete customization process without waiting for me to approve every individual step.
+
+---
+
+## 2. UNDERSTAND THE IDENTITY OF ICYOS
+
+ICYOS is an ICY ecosystem application launcher.
+
+It is NOT a new operating system.
+
+It is NOT a virtual machine.
+
+It is NOT an application container that embeds other applications inside its own interface.
+
+It is NOT a website that merely displays decorative app icons.
+
+ICYOS is an installable, cross-device launcher that organizes and launches supported ICY applications and compatible third-party applications.
+
+The user's original operating system remains responsible for running the applications.
+
+For example:
+
+- A user opens ICYOS on a laptop.
+- The user sees the ICY application library.
+- The user taps ICY Pad.
+- ICYOS requests that ICY Pad open as a separate application in the host operating system.
+- ICY Pad operates independently of the ICYOS launcher.
+- When the user returns to ICYOS, the launcher remains available.
+
+Follow the same principle for mobile phones, tablets, and other supported devices.
+
+Where an actual external application cannot be launched because of browser, operating-system, installation, or permission restrictions, explain the limitation and provide an appropriate installation, connection, or compatibility flow.
+
+Never claim an external app launched successfully when it did not.
+
+Never pretend that a browser has permissions it does not possess.
+
+Design the code around platform adapters so that native launcher functionality can be connected to supported desktop or mobile operating-system APIs when available.
+
+If this project currently runs as a web application, PWA, or browser-based prototype, preserve that working environment and implement all functionality that the environment genuinely supports. Make the architecture ready for native integration without falsely claiming that browser code is a fully privileged native launcher.
+
+---
+
+## 3. CORE ICYOS DESIGN PRINCIPLES
+
+Every part of the application must follow these principles.
+
+### A. Simplicity
+
+ICYOS should feel clean, elegant, organized, and easy to understand.
+
+Do not overcrowd the interface.
+
+Do not surround every small item with unnecessary borders.
+
+Do not turn the home screen into a collection of dozens of unrelated cards.
+
+Use a clear visual hierarchy, purposeful spacing, consistent typography, meaningful icons, and carefully controlled animations.
+
+A new user should understand how to find and launch an application without training.
+
+### B. Intelligence
+
+ICYOS should help users find applications, manage their launcher experience, resume supported activities, understand connection problems, and access relevant ICY services.
+
+Intelligence must be connected to real implemented functionality, not merely represented by an AI badge or decorative animation.
+
+### C. Consistency
+
+Every screen must feel like part of the same product.
+
+Use consistent colors, typography, icon sizes, spacing, navigation rules, controls, transitions, dialog styles, and error messages.
+
+### D. Responsiveness
+
+Design intentionally for:
+
+- Desktop computers.
+- Laptops.
+- Tablets.
+- Mobile phones.
+- Touchscreens.
+- Mouse and keyboard.
+- Different screen sizes and orientations.
+
+Do not simply shrink the desktop interface onto a mobile screen.
+
+Create appropriately adaptive layouts for each form factor.
+
+### E. Reliability
+
+Every visible interactive element must have a defined purpose and a working behavior.
+
+No dead buttons.
+
+No broken menu items.
+
+No fake save operations.
+
+No infinite loading indicators.
+
+No navigation links that lead nowhere.
+
+No silent failures.
+
+No fabricated connection or synchronization status.
+
+---
+
+## 4. VISUAL IDENTITY AND BRANDING
+
+Give ICYOS a distinctive, premium ICY visual identity.
+
+Use the existing ICY logo and design assets if they are already present and correct.
+
+The established brand direction uses a clean letter “I” as the principal logo symbol, with blue as a central brand color.
+
+Preserve existing approved brand assets rather than replacing them without reason.
+
+### Visual direction
+
+Create an original interface inspired by the clarity of modern desktop launchers, the polish of contemporary mobile interfaces, and the organization of professional productivity software.
+
+The design may be Windows-12-inspired, but it must remain an original ICY design rather than a direct copy of another product.
+
+Use:
+
+- A refined blue-centered brand palette.
+- Neutral backgrounds.
+- Carefully balanced dark and light surfaces.
+- Excellent text contrast.
+- Consistent rounded corners.
+- High-quality app icon presentation.
+- Subtle shadows where useful.
+- Well-aligned layouts.
+- Clear focus indicators.
+- Elegant menus, dialogs, tooltips, and notifications.
+- Smooth, restrained animations.
+- Consistent visual feedback for every user interaction.
+
+Support light mode and dark mode. Add a system-preference option when the environment supports detecting it.
+
+Store the user's theme preference using appropriate persistent storage.
+
+Changing the theme must immediately update every relevant component without requiring a page refresh.
+
+### ICY startup animation
+
+Create or refine an elegant ICY startup experience.
+
+Use the ICY “I” symbol and a simple colored-dot animation consistent with the brand.
+
+Keep the animation short and polished.
+
+Do not force the user to watch a long intro every time the launcher opens.
+
+Allow reduced-motion preferences to disable or simplify nonessential animations.
+
+### Application icons
+
+Use existing approved ICY application icons when available.
+
+If icons are missing, establish a consistent icon system with clear visual differentiation between applications.
+
+Do not use random emojis as permanent substitutes for professionally designed application icons.
+
+Use appropriate fallback icons for unavailable assets.
+
+Broken image paths must never leave ugly empty spaces in the interface.
+
+---
+
+## 5. FIRST INSPECT THE EXISTING PROJECT
+
+Before implementing changes, examine the existing application in detail.
+
+Identify:
+
+- The current framework and programming languages.
+- The application's entry points.
+- Existing pages and routes.
+- Shared UI components.
+- Current application catalog.
+- Authentication implementation.
+- Existing ICY Account integration.
+- Existing ICY Cloud integration.
+- Existing backend or database connections.
+- Existing engine integration.
+- Platform detection and launch mechanisms.
+- Existing settings and user preferences.
+- Current responsive behavior.
+- Existing automated tests.
+- Existing build and deployment configuration.
+- Known runtime errors.
+- Incomplete or nonfunctional components.
+
+Preserve working code, existing design decisions that remain useful, application identifiers, existing data, configuration, and established integration contracts.
+
+Do not delete working features simply because you prefer a different implementation.
+
+Do not replace a functioning backend with mock data.
+
+Do not rewrite the whole project unnecessarily.
+
+Make targeted, well-structured improvements and refactor only when the existing implementation genuinely needs it.
+
+If the project is partially implemented, complete it.
+
+If the project contains errors, identify and fix them.
+
+If a required capability is absent, implement it using the existing stack and sound architecture.
+
+If a capability requires an external service or unavailable operating-system permission, implement the appropriate integration boundary, configuration, error handling, and setup instructions rather than inventing a successful result.
+
+---
+
+## 6. HOME SCREEN — THE HEART OF ICYOS
+
+Transform the home screen into a beautiful, functional launcher dashboard.
+
+The main screen should make it easy to open apps, search for applications, access favorites, view recent activity, and find important launcher controls.
+
+### Desktop layout
+
+Create a refined desktop launcher layout with:
+
+- ICY branding.
+- A clear search field.
+- A well-organized application area.
+- Optional pinned or favorite apps.
+- Recently used applications when actual activity data exists.
+- A concise navigation area.
+- An accessible settings entry.
+- A clear user account entry when authentication is configured.
+- A connection or sync indicator when relevant.
+- A useful empty state for new users.
+
+Keep the interface focused on launching and managing applications.
+
+Do not turn ICYOS into a general-purpose dashboard filled with unrelated statistics.
+
+Allow users to customize their pinned applications and, where practical, rearrange them using accessible drag-and-drop or equivalent controls.
+
+Provide an alternative to dragging for keyboard and touch accessibility.
+
+### Mobile layout
+
+On mobile devices, display an intentional touch-friendly interface.
+
+Use sufficiently large touch targets, readable text, compact navigation, responsive application grids, and appropriately sized search controls.
+
+Prevent accidental horizontal scrolling.
+
+Ensure that menus and dialogs fit inside the visible screen.
+
+### Tablet layout
+
+Use available screen space intelligently.
+
+Do not leave excessive empty areas or simply stretch mobile cards across the entire display.
+
+Adapt the number of columns and navigation arrangement according to the actual available width.
+
+### Launcher state
+
+Persist appropriate preferences, such as:
+
+- Theme.
+- Favorite applications.
+- Pinned application order.
+- Grid or list preference.
+- Recent applications, subject to privacy settings.
+- Search preferences.
+- Selected categories.
+- Supported launcher layout choices.
+
+Use a storage mechanism suitable for each type of data.
+
+Local settings should remain available after refreshing or reopening the app.
+
+Account-specific settings should synchronize only through a properly configured account backend.
+
+---
+
+## 7. ICY APPLICATION LIBRARY
+
+Build a functional application library that serves as the central directory of supported applications.
+
+Preserve and use the ICY applications already defined in the project's source code or application catalog.
+
+Do not silently remove any existing application.
+
+Do not fabricate a supposed complete 42-app catalog if the names or integration information are unavailable.
+
+Where the existing catalog is incomplete, use the application names and records already present, create a clean and extensible catalog structure, and make it easy to add additional verified application records.
+
+The existing ICY ecosystem includes products such as:
+
+- ICY Account.
+- ICY Pad.
+- ICY 3D.
+- ICY Chat.
+- ICY Store.
+- ICY Contact.
+- ICY Message.
+- ICY Search.
+- ICY Eagle.
+
+Preserve other applications and services already represented in the current project.
+
+### Application records
+
+Where supported by the existing application architecture, each application record should include:
+
+- Stable application ID.
+- Application name.
+- Application description.
+- Icon or icon reference.
+- Category.
+- Supported device types.
+- Launch method.
+- Installation or registration state.
+- Compatibility state.
+- Version information when supplied by a real source.
+- Availability state.
+- Application destination or native launch identifier, where applicable.
+- Required permissions, if any.
+- Existing integration metadata.
+
+Validate records before they appear in the launcher.
+
+Use stable IDs rather than application names as unique identifiers.
+
+Do not make up version numbers, installation states, compatibility guarantees, or launch destinations.
+
+### Categories
+
+Support a maintainable category system.
+
+Use the categories that already exist in the project. Add suitable categories when necessary, such as communication, productivity, creativity, entertainment, development, utilities, and ICY services.
+
+Provide category filters and an option to view all supported applications.
+
+The filters must actually change the displayed results.
+
+### Search
+
+Implement useful application search.
+
+Search by application name and description and, where implemented, relevant tags or categories.
+
+Support case-insensitive search, sensible handling of extra spaces, and clear empty results.
+
+If search suggestions are displayed, they must lead to relevant results.
+
+Clearing the search field must restore the appropriate library view.
+
+### Favorites and pinning
+
+Allow users to mark applications as favorites and remove them from favorites.
+
+Allow supported pinning or ordering controls.
+
+Update the interface immediately and persist successful changes.
+
+If a synchronization service is configured, synchronize those preferences through the user's account.
+
+Do not claim cloud synchronization when only local storage was updated.
+
+---
+
+## 8. APPLICATION LAUNCHING MUST BE REAL
+
+Application launching is one of the most important ICYOS features.
+
+Build a proper launch-management system instead of making app icons open arbitrary demonstration pages.
+
+### Launch process
+
+When a user selects an application:
+
+1. Identify the application's stable ID.
+2. Resolve its catalog record.
+3. Check its availability and compatibility status.
+4. Determine the correct platform-specific launch method.
+5. Check any required permissions or installation prerequisites that can genuinely be checked.
+6. Execute the supported launch operation.
+7. Record the result when appropriate.
+8. Display useful feedback if the operation fails.
+
+### Use appropriate launch adapters
+
+Design a maintainable launch-adapter interface that can support suitable mechanisms such as:
+
+- Native application launch APIs when a trusted native integration exists.
+- Registered application identifiers.
+- Supported operating-system URL schemes.
+- Android intents or app links through an appropriate native integration.
+- Windows application launch mechanisms through a trusted desktop integration.
+- Browser destinations where explicitly appropriate.
+- Progressive Web App launch mechanisms where supported.
+- Documented ICY application launch contracts.
+
+Do not assume that every mechanism works on every platform.
+
+Do not expose arbitrary command execution to user-controlled input.
+
+Do not invent operating-system permissions.
+
+Do not use unsafe command construction.
+
+### Unsupported applications
+
+If an application cannot be launched, display a useful message explaining the actual problem.
+
+Possible states include:
+
+- Available.
+- Installed and ready.
+- Installation required.
+- Sign-in required.
+- Permission required.
+- Not compatible with this device.
+- Integration unavailable.
+- Temporarily unavailable.
+- Launch failed.
+
+Only display a status when it can be established from a real source or a clearly defined local state.
+
+A simulated demo can be provided when helpful, but it must be explicitly labeled as a simulation and must never be presented as a real external application launch.
+
+### External application behavior
+
+Do not embed an application's full interface inside ICYOS merely to simulate launching it.
+
+Do not automatically convert every application icon into a browser route.
+
+Do not assume that every external app can be launched by an ordinary website.
+
+Keep the launcher independent from the applications it launches.
+
+---
+
+## 9. ICY APPS MUST FEEL READY TO USE
+
+ICY first-party applications should be included in the launcher catalog as ready-to-open ICY services when their real launch integrations are configured.
+
+Users should not be forced to visit ICY Store to individually install every first-party ICY app if those apps are already intended to be included in the ICY ecosystem.
+
+This does not mean falsely reporting that applications are installed.
+
+Represent the difference between catalog availability, actual installation, authentication status, and successful launching.
+
+ICY Store can remain the place to discover supported products, obtain available installations, or manage supported updates when those functions exist.
+
+The launcher should remain focused on accessing applications, not duplicating the entire store.
+
+For third-party applications, provide an appropriate add, register, connect, or installation flow according to the platform and integration actually available.
+
+Validate third-party application metadata and launch destinations before accepting them.
+
+Use an allowlist, origin restrictions, or other suitable security controls where applicable.
+
+Never execute untrusted uploaded code merely because a user added an application to the launcher.
+
+---
+
+## 10. ICY ACCOUNT INTEGRATION
+
+ICY Account is the central identity service in the ICY ecosystem.
+
+ICYOS must be designed to work with ICY Account through the existing supported authentication and backend contracts.
+
+Inspect the project first to determine whether a real ICY Account integration already exists.
+
+Reuse the valid integration rather than building a competing identity system.
+
+### Account experience
+
+Provide appropriate states for:
+
+- Signed out.
+- Signing in.
+- Signed in.
+- Session expired.
+- Authentication service unavailable.
+- Signing out.
+- Account connection failed.
+
+When the identity service is available, display the signed-in user's permitted profile information.
+
+Use the account's actual data rather than fabricated user details.
+
+### Seamless ICY identity
+
+The intended experience is that users sign in to ICY Account and then access compatible first-party ICY services without being asked to create a separate account for every app.
+
+Implement this using secure existing sessions, supported tokens, OAuth 2.0/OpenID Connect, or the protocol defined by the actual ICY Account backend.
+
+Do not simulate single sign-on by simply hiding login forms.
+
+Do not assume that two applications share a secure authentication session unless the identity architecture actually supports it.
+
+### Session security
+
+Use the appropriate secure session approach for the target environment.
+
+For web applications, prefer secure server-managed sessions and appropriately protected cookies where supported.
+
+Do not place long-lived identity tokens, private signing keys, or account-server secrets in publicly accessible frontend code.
+
+Implement session-expiry handling, sign-out, and authorization checks.
+
+Treat authentication and authorization as separate responsibilities.
+
+### ICY Account access
+
+Provide a clear, functional route for users to access account-related features through ICY Account.
+
+Where a secure integration exists, offer access to the supported account pages, profile, devices, and security features.
+
+If a user is signed out, use the real supported authentication flow.
+
+Do not fabricate an authenticated session.
+
+---
+
+## 11. ICY CLOUD AND CROSS-DEVICE CONTINUITY
+
+ICYOS belongs to an ecosystem in which users should be able to access their own information across supported devices.
+
+Design an appropriate integration with ICY Cloud and the existing ICY Account backend.
+
+Do not assume that ICY Cloud is Google Cloud. Use the actual ICY services and configurations defined by the project.
+
+### What should be supported
+
+Where the relevant backend APIs exist, support synchronization of appropriate user preferences and launcher data, such as:
+
+- Favorites.
+- Pinned application arrangements.
+- Theme preference.
+- Relevant launcher settings.
+- Supported application metadata.
+- User-selected synchronization settings.
+
+Preserve each application's own data ownership. Do not collect or synchronize every application's private data without an explicit, supported integration.
+
+Where ICY Cloud supports an application's files, that application can use its approved cloud-storage integration to synchronize those files independently of the launcher.
+
+ICYOS must not claim that it can restore application documents unless the document data is actually stored or retrievable through a supported service.
+
+### Offline operation
+
+The basic launcher experience should continue to function when offline.
+
+Where practical, retain the application catalog, icons, user preferences, and locally available launcher information.
+
+When a supported cloud operation is unavailable, clearly identify that the operation could not be completed.
+
+If the application supports queued changes, distinguish pending local changes from completed server synchronization.
+
+Implement a deliberate synchronization strategy that handles retries and duplicate operations safely.
+
+### Conflict handling
+
+Where local and cloud settings conflict, use a deterministic policy.
+
+Prefer explicit user choice for meaningful conflicts rather than silently overwriting user data.
+
+Display real synchronization states, such as synchronized, pending, failed, or unavailable, only when supported by the implementation.
+
+---
+
+## 12. DEVICE MODE AND SIMULATED APP MODE
+
+ICYOS should support the device setup choices established by the existing ICYOS concept.
+
+### Device Mode
+
+Device Mode is intended for an actual supported device.
+
+Use the platform capabilities that are genuinely available to identify the environment, show appropriate compatible apps, and enable supported launch operations.
+
+Do not ask users to grant permissions that are irrelevant to the current feature.
+
+Where native integration is unavailable, provide a clear limitation or setup path.
+
+### Simulated App Mode
+
+Simulated App Mode is a demonstration or development mode for exploring the ICYOS experience when direct device integrations are unavailable.
+
+It may demonstrate the launcher interface, application catalog, menu behavior, onboarding, and non-destructive interactions.
+
+Simulated mode must be clearly identifiable.
+
+Do not present simulated installation, simulated launching, simulated authentication, simulated cloud storage, or simulated AI results as real completed actions.
+
+Keep simulated data isolated from real production account information.
+
+Make it easy to return to the launcher home screen.
+
+---
+
+## 13. DEVICE PERMISSIONS AND CAPABILITY MANAGEMENT
+
+Create or improve the permissions and device-capability screen.
+
+Use clear icons, short explanations, and an appropriate preview of the functionality that each permission enables.
+
+The planned setup includes relevant capabilities such as:
+
+- Storage access.
+- Internet or network connectivity.
+- Notifications.
+- Supported device information.
+- Other permissions genuinely needed by implemented integrations.
+
+The original ICYOS concept also mentions RAM and ROM. Explain the difference between reported device information and permissions to access or manage resources.
+
+A normal application cannot grant itself control over all device RAM, internal storage, mobile data, or system permissions.
+
+Do not pretend it can.
+
+Display actual capability states only when a supported API or native integration can provide them.
+
+Request sensitive permissions just in time, when the user invokes the feature that needs them, wherever that is the appropriate platform behavior.
+
+Provide the user with clear controls for supported permissions and links to operating-system settings when needed.
+
+Do not claim that ICYOS can enable mobile data, grant protected system permissions, or control device hardware when the host operating system does not allow it.
+
+Permission denial should not crash the launcher.
+
+The user must still be able to use unrelated features that do not need that permission.
+
+---
+
+## 14. OFFLINE ICY HELP
+
+Implement a helpful offline assistance area for basic ICYOS questions.
+
+The offline help experience should function without depending on an online AI engine.
+
+Include searchable, locally available guidance for:
+
+- Getting started.
+- Finding and launching applications.
+- Managing favorites.
+- Changing launcher settings.
+- Switching supported display themes.
+- Understanding compatibility states.
+- Handling common connection errors.
+- Understanding account sign-in.
+- Recognizing cloud synchronization states.
+- Understanding native integration limitations.
+
+Use actual application behavior and configuration to keep help content accurate.
+
+Provide relevant guidance for the current screen when practical.
+
+If online assistance is added, keep it separate from the offline help capability.
+
+Do not label an online-only service as offline AI.
+
+Do not invent troubleshooting steps for integrations that have not been implemented.
+
+---
+
+## 15. SECURE ICY ENGINE PRIVATE PLATFORM INTEGRATION
+
+ICYOS must follow the established ICY engine-integration architecture wherever it directly uses ICY AI engines or exposes supported engine-powered functionality.
+
+Keep the following ICY services separate:
+
+1. ICY Account and the ICY identity server manage identity, accounts, profiles, and permitted account data.
+2. ICY Engine Private Platform provides supported application engines and routes engine requests.
+3. ICY Cloud provides supported cloud-storage and synchronization services.
+4. ICYOS is the application launcher and device-access experience.
+5. Individual ICY applications remain separate applications.
+
+Do not merge these responsibilities into one undocumented backend.
+
+### Integration requirements
+
+Use the existing ICY Engine Private Platform API contract and integration mechanisms when they are available in the project.
+
+The intended developer configuration is an application API key.
+
+Do not require the user to manually discover or enter an engine Base URL.
+
+The platform should handle engine discovery, selection, routing, and supported invocation through its documented service interfaces.
+
+Store application API keys in an appropriate backend secret configuration or secure secret manager.
+
+Do not hardcode private keys into public source files, client-side JavaScript, bundled frontend assets, mobile application packages, or generated configuration that users can inspect.
+
+Do not expose a privileged platform key to the frontend.
+
+If the existing integration architecture supports application-scoped credentials, use those credentials and enforce the appropriate permissions.
+
+Create a secure server-side proxy or backend integration layer when direct client access would expose a secret.
+
+### Implementation requirements
+
+Inspect the existing project for:
+
+- Engine SDKs.
+- Integration documentation.
+- Existing backend routes.
+- Application credential configuration.
+- Authentication requirements.
+- Request and response contracts.
+- Available service discovery mechanisms.
+- Rate limits and failure handling.
+
+Use actual documented endpoints and schemas.
+
+Do not invent a working engine endpoint or fabricate successful AI responses.
+
+If the engine service is not configured, implement the appropriate integration interface and a clear configuration and health-check workflow.
+
+Distinguish between unavailable credentials, authentication failure, engine unavailability, network failure, rate limiting, invalid requests, and successful responses.
+
+Protect credentials, avoid leaking sensitive request data, and never write secret values to application logs.
+
+Use timeouts, safe retries, request validation, and suitable rate limits.
+
+Ensure a failed engine connection does not prevent the basic offline launcher from working.
+
+Do not put an AI Operator inside ICYOS simply because other ICY services may have AI capabilities. Reuse the correct existing service for its intended responsibility.
+
+---
+
+## 16. OPTIONAL INTELLIGENT LAUNCHER ASSISTANCE
+
+Where it improves usability, introduce practical intelligence that respects the launcher’s role.
+
+Potential capabilities include:
+
+- Search applications using natural language when the actual AI service is configured.
+- Find an application by describing its purpose.
+- Suggest relevant applications based on user-selected preferences.
+- Explain compatibility and launch errors.
+- Help users locate launcher settings.
+- Show previously used apps using actual local activity data.
+- Provide an optional way to organize favorites.
+
+Keep the experience simple.
+
+Do not add features merely because they sound advanced.
+
+AI-generated suggestions must be clearly distinguished from facts obtained from the actual application catalog.
+
+Do not collect sensitive user behavior without necessity and transparent controls.
+
+If the AI engine is unavailable, ordinary catalog search and basic launcher features must remain functional.
+
+Never fabricate AI responses to conceal a missing service.
+
+---
+
+## 17. APPLICATION SETTINGS
+
+Create a coherent settings area with working controls.
+
+Use existing settings pages where available, improving rather than duplicating them.
+
+Provide relevant options for:
+
+- Appearance.
+- Light, dark, and supported system themes.
+- Launcher layout.
+- Grid or list view.
+- Favorites and pinned apps.
+- Search behavior.
+- Notifications.
+- Privacy controls.
+- Offline behavior.
+- Cloud synchronization.
+- Account access.
+- Device compatibility.
+- Supported integrations.
+- Help and about.
+- Resetting selected launcher preferences.
+
+Every setting must have defined behavior.
+
+When a user changes a value, validate it, apply it, and save it appropriately.
+
+If the change requires a backend, report success only after the backend confirms it.
+
+Give users a clear and safe confirmation before destructive actions.
+
+A reset must not unexpectedly delete ICY Account records or ICY Cloud files.
+
+Separate resetting local launcher preferences from deleting account data.
+
+---
+
+## 18. NOTIFICATIONS AND FEEDBACK
+
+Implement a unified notification and feedback system for launcher events.
+
+Use it for meaningful events such as:
+
+- Successful local preference changes.
+- Failed launches.
+- Missing integrations.
+- Permission requests.
+- Account-session problems.
+- Synchronization results.
+- Configuration errors.
+
+Notifications should be short, useful, nonintrusive, and accessible.
+
+Use the appropriate display method for the context, such as inline messages, toast notifications, dialogs, or a notification panel.
+
+Do not show a success message when the underlying action failed.
+
+Do not show a notification for every trivial mouse movement or routine interaction.
+
+Allow users to control supported notification preferences.
+
+Browser notifications, native notifications, and in-app notifications are different capabilities. Implement each only when its relevant permission and platform integration are available.
+
+---
+
+## 19. ACCESSIBILITY AND INTERACTION QUALITY
+
+Make ICYOS accessible and comfortable to use.
+
+Implement:
+
+- Keyboard-accessible navigation.
+- Visible focus indicators.
+- Suitable color contrast.
+- Semantic page structure.
+- Meaningful labels for icon-only controls.
+- Appropriate accessible names for app icons and buttons.
+- Keyboard support for dialogs and menus.
+- Sensible focus restoration after closing a dialog.
+- Reduced-motion support.
+- Readable text at practical zoom levels.
+- Touch-friendly controls.
+- Accessible error feedback.
+
+Do not communicate essential information using color alone.
+
+Do not create custom controls that look interactive but cannot be operated by keyboard or touch.
+
+Ensure that long application names, large catalogs, narrow screens, and high zoom levels do not break the interface.
+
+---
+
+## 20. FRONTEND ARCHITECTURE AND CODE QUALITY
+
+Keep the code modular, understandable, and maintainable.
+
+Reuse shared components where appropriate.
+
+Separate presentation from application logic, API access, state management, persistence, and launch execution.
+
+Create clear interfaces for services such as:
+
+- Application catalog.
+- Application search.
+- Launch management.
+- Platform capabilities.
+- Account authentication.
+- Cloud synchronization.
+- Preferences.
+- Notifications.
+- Engine integration.
+- Offline help.
+
+Adapt these names to the existing project architecture instead of creating unnecessary duplicate abstractions.
+
+Avoid a single enormous component containing the entire application.
+
+Avoid unnecessary dependencies.
+
+Avoid duplicate implementations of the same feature.
+
+Avoid untyped or unvalidated data where the existing stack supports stronger typing.
+
+Validate user-controlled data at relevant boundaries.
+
+Provide appropriate loading, success, error, and empty states.
+
+Handle asynchronous requests safely and prevent outdated requests from unexpectedly overwriting newer state.
+
+Clean up event listeners and subscriptions.
+
+Do not let a failure in one optional integration crash the entire launcher.
+
+Preserve compatibility with the framework and versions already used by the project unless an upgrade is genuinely necessary.
+
+---
+
+## 21. BACKEND AND DATA INTEGRITY
+
+If the existing project has a backend, inspect and improve it rather than replacing it unnecessarily.
+
+If a missing backend is required for a feature, create the appropriate maintainable integration using the supported development environment.
+
+For each backend-dependent operation:
+
+- Validate the request.
+- Authenticate the user where required.
+- Verify authorization on the server.
+- Validate identifiers and inputs.
+- Return a clear and consistent response.
+- Handle unavailable dependencies.
+- Avoid disclosing private internal errors to end users.
+- Record useful diagnostic information without logging secrets.
+- Apply suitable rate limits and idempotency controls where needed.
+
+Never trust a frontend check as a security boundary.
+
+Do not use public application settings as a place to store private credentials.
+
+Do not fabricate database records to make a feature appear functional.
+
+Do not silently fall back from a failed server operation to fake server-success data.
+
+For locally available functionality, local persistence is acceptable when appropriate.
+
+For account data, authentication, cloud files, and protected engine operations, use the correct secure backend.
+
+If credentials or infrastructure are unavailable, provide an accurate configuration status and clear setup instructions.
+
+---
+
+## 22. PERFORMANCE AND STABILITY
+
+Optimize ICYOS so that it feels fast and smooth.
+
+Use reasonable loading and rendering strategies for large application libraries.
+
+Avoid unnecessary repeated API requests.
+
+Cache safe, appropriate information where doing so improves responsiveness.
+
+Do not cache sensitive information insecurely.
+
+Avoid blocking the main interface while an optional remote service loads.
+
+Lazy-load appropriate nonessential resources when supported by the existing framework.
+
+Prevent excessive animation, repeated re-rendering, and unnecessary polling.
+
+Handle loss of connectivity without leaving the application permanently stuck in a loading state.
+
+Maintain responsive input, smooth navigation, and predictable state changes.
+
+Respect the actual limits of the host device and browser.
+
+---
+
+## 23. PRIVACY AND SECURITY REVIEW
+
+Perform a security review of the entire application.
+
+Check for:
+
+- Secrets accidentally committed to source code.
+- Private keys exposed in frontend bundles.
+- Unsafe handling of authentication tokens.
+- Inadequate authorization checks.
+- Unsafe application launch destinations.
+- Unvalidated URL schemes.
+- Open redirect risks.
+- Unsafe HTML rendering.
+- Untrusted external content.
+- Insecure cross-origin access.
+- Missing API error handling.
+- Sensitive information in logs.
+- Inadequate session-expiry handling.
+- Unsafe third-party application registration.
+- Inappropriate storage of private account information.
+
+Use the security mechanisms supported by the actual deployment architecture.
+
+Do not claim to have completed a security audit merely because a checklist exists. Review the relevant implementation and fix identified problems.
+
+Do not introduce a backdoor, hidden administrator route, hardcoded universal password, or exposed service key.
+
+Collect only the data necessary for implemented functionality.
+
+Provide clear privacy behavior for preferences and activity information.
+
+---
+
+## 24. VISUAL POLISH AND MICRO-INTERACTIONS
+
+Refine the small details that distinguish a professional application from a rough prototype.
+
+Check:
+
+- Alignment across every page.
+- Consistency of margins and padding.
+- Font sizing and line heights.
+- Truncation of long names.
+- Icon and image quality.
+- Loading indicators.
+- Hover states.
+- Focus states.
+- Pressed states.
+- Disabled states.
+- Menu placement.
+- Dialog sizing.
+- Mobile navigation.
+- Empty states.
+- Error messages.
+- Dark-mode contrast.
+- Background colors.
+- Scrolling behavior.
+- Animation timing.
+- Page transitions.
+- Responsive grid behavior.
+
+Use animation to communicate an action or transition, not to distract the user.
+
+For example, opening a menu can use a subtle transition, selecting a favorite can have clear visual feedback, and changing themes can update smoothly.
+
+Avoid excessive glass effects, gradients, blur, and shadows if they make the interface cluttered or slow.
+
+The final design should look intentional and refined, not overloaded with visual effects.
+
+---
+
+## 25. REAL FUNCTIONALITY: NON-NEGOTIABLE RULES
+
+Do not stop after making the UI attractive.
+
+Audit every visible control and interactive component.
+
+For each control, determine:
+
+1. What the control is supposed to do.
+2. What event activates it.
+3. What data or state it changes.
+4. Whether a backend operation is required.
+5. What happens when the operation succeeds.
+6. What happens when the operation fails.
+7. Whether the result persists.
+8. Whether the control works on mobile and desktop.
+9. Whether keyboard and accessibility behavior work.
+10. Whether the user receives truthful feedback.
+
+Implement the missing behavior.
+
+If a control does not have a useful, supportable function, remove it or clearly mark it as unavailable rather than pretending it works.
+
+Do not leave buttons with empty handlers.
+
+Do not leave menu items pointing to nonexistent routes.
+
+Do not use static alerts as substitutes for meaningful operations.
+
+Do not simulate a real cloud upload, app launch, user login, external installation, or AI response and present the simulation as success.
+
+Use real integrations where available and safe local implementations for features that can genuinely function locally.
+
+---
+
+## 26. TESTING AND VERIFICATION
+
+After implementation, test the application using the build system, test runner, browser preview, emulator, or other tools available in the current development environment.
+
+Do not claim a test passed if you did not execute it.
+
+### A. Build verification
+
+- Run the appropriate build command.
+- Resolve compilation and bundling errors.
+- Check dependency problems.
+- Fix import and export errors.
+- Check configuration problems.
+- Confirm that the application starts successfully.
+
+### B. Runtime verification
+
+Open the actual application in the available preview or test environment.
+
+Look for:
+
+- Console errors.
+- Failed requests.
+- Missing assets.
+- Invalid routes.
+- Broken icons.
+- Layout overflow.
+- Unhandled exceptions.
+- Incomplete loading states.
+- Unexpected navigation.
+
+### C. Interaction testing
+
+Test the functions that the environment can genuinely support.
+
+At a minimum, verify:
+
+- Opening the home screen.
+- Searching for an application.
+- Filtering by category.
+- Opening application details if provided.
+- Adding and removing favorites.
+- Changing the launcher layout.
+- Switching light and dark modes.
+- Opening and closing settings.
+- Saving and restoring preferences.
+- Navigating to account-related screens.
+- Handling a signed-out state.
+- Handling unavailable backend services.
+- Displaying launch errors correctly.
+- Using keyboard navigation.
+- Rendering the layout at mobile, tablet, and desktop widths.
+
+### D. Integration verification
+
+Where real services are configured, test the applicable account, storage, synchronization, and engine integration flows using authorized test accounts and safe test data.
+
+When a service is unavailable, verify its error handling and configuration state instead.
+
+Do not claim that an unavailable external integration was successfully tested.
+
+### E. Regression testing
+
+Ensure that improvements do not break existing features.
+
+Test previously working application flows and compare the result against the original project's behavior.
+
+Fix regressions introduced by the customization.
+
+### F. Final stabilization
+
+After each major fix, rerun the relevant verification steps.
+
+Do not stop at the first successful build if obvious runtime or interaction errors remain.
+
+---
+
+## 27. DO NOT WASTE TIME WITH UNNECESSARY REWRITING
+
+Work efficiently and preserve project continuity.
+
+Use this order of priority:
+
+1. Critical errors preventing the application from running.
+2. Broken existing functionality.
+3. Core launcher and application navigation.
+4. ICY Account and existing service integrations.
+5. Core visual redesign and responsive behavior.
+6. Persistent preferences and user experience.
+7. Security, accessibility, and performance improvements.
+8. Advanced enhancements and final polish.
+
+Do not repeatedly rewrite files that are already correct.
+
+Do not replace the project framework simply to make a preferred design easier.
+
+Do not produce a second, disconnected ICYOS implementation alongside the existing application.
+
+Do not remove working functionality without a clear technical reason.
+
+When a large improvement is required, divide it into logical changes, implement each change, and verify it before moving on.
+
+You are authorized to make reasonable engineering decisions without asking me to choose every small detail.
+
+---
+
+## 28. FINAL ACCEPTANCE CRITERIA
+
+The customization is successful only to the extent that the resulting implementation satisfies these criteria:
+
+**Product identity:** ICYOS remains an application launcher operating within the host operating system.
+
+**Design:** The interface is polished, consistent, responsive, recognizable as ICY, and easy to navigate.
+
+**Applications:** The existing application catalog is preserved, searchable, categorized, and maintainable.
+
+**Launching:** Supported applications use their correct launch integrations. Unsupported launches are reported honestly.
+
+**State:** Favorites and supported preferences persist appropriately.
+
+**Account:** Existing ICY Account functionality is preserved and connected through real supported authentication contracts.
+
+**Cloud:** Available synchronization functions use the real ICY services and report accurate status.
+
+**Offline:** Basic launcher functionality and local help remain usable when optional network services are unavailable.
+
+**Permissions:** Permission requests correspond to actual features and host-platform capabilities.
+
+**Engine security:** Engine requests use the established ICY Engine Private Platform integration architecture, with secrets protected from frontend exposure.
+
+**Accessibility:** Essential actions work through appropriate keyboard, touch, and assistive interfaces.
+
+**Stability:** Errors are handled without crashing unrelated launcher functions.
+
+**Testing:** The available build and test procedures are executed, with failures investigated and fixed.
+
+**Transparency:** Missing external services, unavailable credentials, platform restrictions, and untested capabilities are identified honestly.
+
+**Maintainability:** The resulting architecture is understandable, modular, and ready for further ICY ecosystem development.
+
+---
+
+## 29. EXECUTION INSTRUCTIONS
+
+Now begin.
+
+First, inspect the entire existing ICYOS project and understand its actual state.
+
+Second, identify the most important defects, incomplete functions, integration gaps, security problems, and design inconsistencies.
+
+Third, implement the required improvements directly in the existing source code.
+
+Fourth, connect existing services where their contracts and credentials are available.
+
+Fifth, improve the user interface, application launching, responsive layouts, persistence, error handling, accessibility, and performance.
+
+Sixth, execute the available build and test procedures.
+
+Seventh, fix discovered errors and recheck affected functionality.
+
+Finally, provide a concise implementation report describing:
+
+- The important improvements actually completed.
+- The working features that were verified.
+- The tests and build commands that were actually run.
+- Any remaining limitations.
+- Any required credentials, operating-system permissions, external services, or deployment steps that are still missing.
+
+Separate completed work from partially implemented work.
+
+Do not describe planned features as completed.
+
+Do not provide only a proposal, mockup, checklist, or tutorial.
+
+**Your primary deliverable is the improved, working ICYOS project itself. Make the strongest practical improvements supported by the existing project and available development environment, while preserving the ICYOS identity and keeping every implementation truthful, secure, and maintainable.**
+
+BEGIN THE PROJECT INSPECTION AND IMPLEMENTATION NOW.

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "org.iclauncher.app",
+  "productName": "IC App Launcher",
+  "copyright": "Copyright © 2026 ICY Ecosystem",
+  "directories": {
+    "output": "release/desktop",
+    "buildResources": "public/icons"
+  },
+  "files": [
+    "dist/**/*",
+    "desktop/**/*",
+    "package.json"
+  ],
+  "protocols": [
+    {
+      "name": "IC App Launcher Protocol",
+      "schemes": ["iclauncher"]
+    }
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64", "arm64"]
+      },
+      {
+        "target": "msix",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "public/icons/ic-app-launcher-icon.svg"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false
+  },
+  "mac": {
+    "category": "public.app-category.utilities",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      },
+      {
+        "target": "zip",
+        "arch": ["x64", "arm64"]
+      }
+    ],
+    "hardenedRuntime": true,
+    "gatekeeperAssess": false,
+    "entitlements": "ios/App/App/App.entitlements"
+  },
+  "linux": {
+    "target": [
+      {
+        "target": "deb",
+        "arch": ["x64"]
+      },
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      }
+    ],
+    "category": "Utility",
+    "synopsis": "A simple application launcher for ICY applications and compatible third-party applications.",
+    "desktop": {
+      "Name": "IC App Launcher",
+      "Comment": "A simple application launcher for ICY applications and compatible third-party applications.",
+      "Categories": "Utility;Application;",
+      "StartupWMClass": "ic-app-launcher"
+    }
+  }
+}

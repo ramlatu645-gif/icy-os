@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=IC App Launcher
+GenericName=Application Launcher
+Comment=A simple application launcher for ICY applications and compatible third-party applications.
+Exec=/usr/bin/ic-app-launcher %U
+Icon=ic-app-launcher
+Terminal=false
+Categories=Utility;
+MimeType=x-scheme-handler/iclauncher;
+StartupNotify=true
+StartupWMClass=ic-app-launcher
